@@ -8,7 +8,7 @@ exports.getUser = (req, res) => {
   const email=req.userData.email;
   Usuario.findOne({email_usu:email}).then((user) => {
     if(user){
-      if(user.activo){
+      if(user.estado_activo){
         res.status(200).json("Activo")
       }else{
         res.status(500).json("Inactivo")
