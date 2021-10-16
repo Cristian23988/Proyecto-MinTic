@@ -9,6 +9,7 @@ import AgregarProduct from '../producto/componente/AgregarProducto';
 import UpdateVentas from '../ventas/components/UpdateVentas';
 import UpdateVend from "../Usuarios/component/UpdateVend";
 import UpdateProd from "../producto/componente/UpdateProd";
+import PrivateRoute from "../components/PrivateRoute"
 class App extends React.Component{
      
 render(){
@@ -18,7 +19,9 @@ return(
     <Route exact path="/" component={home} />
     <Route exact path="/login" component={Login}/>
     <Route path="/listaProducts" component={Lista_Productos} />
-    <Route path="/Productos" component={AgregarProduct} />
+    <PrivateRoute path="/Productos"  >
+        <AgregarProduct />
+    </PrivateRoute>
     <Route path="/Usuarios" component={AgregarUsuario} />
     <Route path="/updateVentas" component={UpdateVentas} />
     <Route path="/updateProd" component={UpdateProd} />

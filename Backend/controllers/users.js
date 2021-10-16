@@ -5,13 +5,13 @@ exports.getUsers = (req, res) => {
     })
 };
 exports.getUser = (req, res) => {
-  const email=req.params.email;
+  const email=req.userData.email;
   Usuario.findOne({email_usu:email}).then((user) => {
     if(user){
       if(user.activo){
-        res.status(200).json("Usuario activo")
+        res.status(200).json("Activo")
       }else{
-        res.status(500).json("Usuario inactivo")
+        res.status(500).json("Inactivo")
       }      
     }else{
       const newUser=new Usuario({
@@ -20,7 +20,7 @@ exports.getUser = (req, res) => {
         activo:false,
       });
       newUser.save().then((user)=>{
-        res.status(200).json("Usuario creado");
+        res.status(200).json("Inactivo");
       })
     }
     //res.status(200).json(user)
