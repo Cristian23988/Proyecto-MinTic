@@ -1,19 +1,28 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import iconUser from '../img/icon-user.svg';
+import AlertInactivo from './AlertInactivo';
 import GoogleLogin from 'react-google-login';
 import iconCarrito from '../img/icon-carrito.svg';
+import api from "../servicios/serviceApi";
 const HeaderLogin=({carrito}) =>{
     carrito = 3;
     const [loggIn, setLoggIn] = useState(false);
     useEffect(() => {
         const token = localStorage.getItem("token");
-    
         if (token === null) {
-          setLoggIn(false);
-        } else {
-          setLoggIn(true);
-        }
+           setLoggIn(false);
+        } else {      
+           api.Usuarios.getUser().then((res)=>{
+            if(res === "Activo"){ 
+                setLoggIn(true);
+            }else if(res ==="Inactivo"){
+                setLoggIn(false);
+                localStorage.removeItem("token");
+                <AlertInactivo/>
+            }
+        });           
+        }      
     }, []);
     if(loggIn === true){
         return(
@@ -56,11 +65,13 @@ const HeaderLogin=({carrito}) =>{
                 <GoogleLogin
                     clientId="882471923244-2s7j8hlt0kftg4qlv00mm5rldl1camul.apps.googleusercontent.com"
                     buttonText="Iniciar sesion"
-                    onSuccess={(res) => { 
-                    setTimeout(window.location.reload(), 1000); 
-                    localStorage.setItem("token", res.tokenId);
-                    console.log(res)
-                    }}
+                    onSuccess={(res) => 
+                        {    
+                            setTimeout(window.location.reload(), 1000);
+                            localStorage.setItem("token", res.tokenId);                     
+                                            
+                        }
+                    }
                     onFailure={(err)=>{console.log(err)}}
                     cookiePolicy={'single_host_origin'}
                 />
