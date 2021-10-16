@@ -80,11 +80,24 @@ const api = {
         body: JSON.stringify(value),
       });
     },
-      getById(value) {
+    getById(value) {
       return callApi("/Usuarios/"+value);
     },getUser(){
       return callApi("/Usuarios/auth");
     },
+    edit(value) {
+      return callApi("/Usuarios/"+value._id, {
+        method: "PUT",
+        body: JSON.stringify(value),
+      });
+    },
+    delete(value){
+      return callApi("/Usuarios/"+value, {
+        method: "DELETE",
+      });
+    }
+
+  
   },
 };
   

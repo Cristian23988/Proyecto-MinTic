@@ -23,6 +23,7 @@ exports.addVenta=(req, res) => {
     res.status(201).json(true);
   });
 }
+//Buscar pod id
 exports.getVentaId=(req, res)=>{
     Venta.findById(req.params.id).then((ventaResult)=>{
     if(ventaResult){
@@ -43,7 +44,9 @@ exports.deleteVenta = (req, res) => {
   const id = req.params.id;
 
   Venta.deleteOne({ _id: id }).then((ventaResult) => {
-    res.status(200).json("La venta se eliminó satisfactoriamente.");
+    if(ventaResult.deletedCount === 1){
+      return res.status(200).json(true);
+    }
   });
 };
 
