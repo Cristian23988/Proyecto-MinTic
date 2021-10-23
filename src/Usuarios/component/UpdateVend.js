@@ -144,6 +144,7 @@ class UpdateVend extends React.Component{
         let f = this.state.fields;
         f[field] = e.target.value;
         this.state[field] = e.target.value;
+        console.log(e.target.value);
         this.setState({ f, alerta: ""});
     }
 
@@ -240,9 +241,9 @@ render(){
                                             <img src={iconorol} className="producto-content-form-icon" alt="icono"/>
                                         </span>
                                         <select className="form-select" id="updestado_usu" onChange={this.handleChange.bind(this, "updestado_usu")} required >
-                                            <option value={this.state.updestado_usu} defaultValue>{this.state.updestado_usu === "Activo" ? "Inactivo":"Activo"}</option>
-                                            <option value="true">Activo</option>
-                                            <option value="false">Inactivo</option>
+                                            <option value={this.state.updestado_usu} defaultValue>{this.state.updestado_usu === true ? "Activo":"Inactivo"}</option>
+                                            <option value={true}>Activo</option>
+                                            <option value={false}>Inactivo</option>
                                         </select>
                                     </div>
                                 </div>
