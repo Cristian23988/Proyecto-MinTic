@@ -16,6 +16,9 @@ exports.getUser = (req, res) => {
     }else{
       const newUser=new Usuario({
         nombre_usu:req.userData.name,
+        apellido_usu:"Apellido",
+        tipo_documento_usu:"Cedula",
+        identificacion_usu:111111,
         email_usu:req.userData.email,
         rol_usu:"Vendedor",
         estado_activo:false,
