@@ -159,7 +159,7 @@ class UpdateProd extends React.Component {
     return (
         <div>
             <div>
-                <Header />
+              
             </div><br />
             <div className="container-sm">
                 <div className="row justify-content-center">
@@ -196,10 +196,10 @@ class UpdateProd extends React.Component {
                                                 <img src={iconCategorias} className="producto-content-form-icon" alt="icono"/>
                                             </span>
                                             <select className="form-select" id="updProductCategoria" onChange={this.handleChange.bind(this, "updProductCategoria")} required >
-                                                <option value={this.state.updProductCategoria._id} selected>{this.state.updProductCategoria.nombre_categoria}</option>
+                                                <option value={this.state.updProductCategoria._id} defaultValue>{this.state.updProductCategoria.nombre_categoria}</option>
                                                 {this.state.categorias.map((cat) => {
                                                     return (
-                                                        <option value={cat._id}>{cat.nombre_categoria}</option>
+                                                        <option key={cat._id} value={cat._id}>{cat.nombre_categoria}</option>
                                                     )
                                                 })}
                                                 
@@ -240,7 +240,7 @@ class UpdateProd extends React.Component {
                                                 <img src={iconProductoDisponible} className="producto-content-form-icon" alt="icono"/>
                                             </span>
                                             <select className="form-select" id="updProductDisponible" onChange={this.handleChange.bind(this, "updProductDisponible")} required >
-                                                <option value={this.state.updProductDisponible} selected>{this.state.updProductDisponible === true ? "Disponible":"No disponible"}</option>
+                                                <option value={this.state.updProductDisponible} defaultValue>{this.state.updProductDisponible === true ? "Disponible":"No disponible"}</option>
                                                 <option value="true">Disponible</option>
                                                 <option value="false">No disponible</option>
                                             </select>

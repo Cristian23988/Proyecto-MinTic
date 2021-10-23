@@ -70,25 +70,24 @@ const ListaUsuarios = () => {
                             <th scope="col">Rol</th>
                             <th scope="col">Correo</th>
                             <th scope="col">Estado</th>
-                            <th scope="col" colspan="2">Acciones</th>
+                            <th scope="col" colSpan="2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {usuario.map((usu) => (    
-                        <tr>
-                        <th scope="row">{c++}</th>
-                        
-                        <td>{usu.nombre_usu}</td>
-                        <td>{usu.apellido_usu}</td>
-                        <td>{usu.tipo_documento_usu}</td>        
-                        <td>{usu.identificacion_usu}</td>                   
-                        <td>{usu.rol_usu}</td>
-                        <td>{usu.email_usu}</td>
-                        <td>{usu.estado_activo === true ? "Activo":"Inactivo"}</td>
-                        <td colspan="2" className="col">
-                            <Link to={"/UpdateVend/"+usu._id}><button className="btn btn-warning btn-sm" onClick={()=>UpdateItem(usu.id)}>Editar</button></Link> 
-                            <button type="button"  className="btn btn-danger btn-sm" onClick={()=>{functionModal(true); setValue(usu._id); setAlerta("danger"); setAlertaMensaje("¿Seguro que desea eliminar el usuario?");}}> Eliminar</button>
-                        </td>
+                        <tr key={usu._id}>
+                            <th scope="row" >{c++}</th>                     
+                            <td>{usu.nombre_usu}</td>
+                            <td>{usu.apellido_usu}</td>
+                            <td>{usu.tipo_documento_usu}</td>        
+                            <td>{usu.identificacion_usu}</td>                   
+                            <td>{usu.rol_usu}</td>
+                            <td>{usu.email_usu}</td>
+                            <td>{usu.estado_activo === true ? "Activo":"Inactivo"}</td>
+                            <td colSpan="2" className="col">
+                                <Link to={"/UpdateVend/"+usu._id}><button className="btn btn-warning btn-sm" onClick={()=>UpdateItem(usu.id)}>Editar</button></Link> 
+                                <button type="button"  className="btn btn-danger btn-sm" onClick={()=>{functionModal(true); setValue(usu._id); setAlerta("danger"); setAlertaMensaje("¿Seguro que desea eliminar el usuario?");}}> Eliminar</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

@@ -7,7 +7,7 @@ import iconIng from '../../img/icon-btn-ingresar.svg';
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../../components/Header';
-import AdminLista_Products from './AdminLista_ Products';
+import AdminListaProducts from './AdminLista_ Products';
 import Alert from '../../components/Alert';
 import serviceApi from "../../servicios/serviceApi";
 
@@ -179,7 +179,6 @@ class AgregarProducto extends React.Component {
         return (
             <div>
                 <div>
-                    <Header />
                 </div><br />
                 <div className="container-sm">
                     <div className="row justify-content-center">
@@ -216,10 +215,10 @@ class AgregarProducto extends React.Component {
                                                     <img src={iconCategorias} className="producto-content-form-icon" alt="icono"/>
                                                 </span>
                                                 <select className="form-select" id="regProductCategoria" onChange={this.handleChange.bind(this, "regProductCategoria")} value={this.state.fields["regProductCategoria"]} required >
-                                                    <option value="" selected>Seleccione la categoria</option>
+                                                    <option value="" defaultValue>Seleccione la categoria</option>
                                                     {this.state.categorias.map((cat) => {
                                                         return (
-                                                            <option value={cat._id}>{cat.nombre_categoria}</option>
+                                                            <option key={cat._id} value={cat._id}>{cat.nombre_categoria}</option>
                                                         )
                                                         
                                                     })}
@@ -261,7 +260,7 @@ class AgregarProducto extends React.Component {
                                                     <img src={iconProductoDisponible} className="producto-content-form-icon" alt="icono"/>
                                                 </span>
                                                 <select className="form-select" id="regProductDisponible" onChange={this.handleChange.bind(this, "regProductDisponible")} value={this.state.fields["regProductDisponible"]} required >
-                                                    <option value="" selected>Seleccione el estado del producto</option>
+                                                    <option value="" defaultValue>Seleccione el estado del producto</option>
                                                     <option value="true">Disponible</option>
                                                     <option value="false">No disponible</option>
                                                 </select>
@@ -313,7 +312,7 @@ class AgregarProducto extends React.Component {
                                 </div>
                             </div>
                             <div className="table-responsive">
-                                <AdminLista_Products/>
+                                <AdminListaProducts/>
                             </div>
                         </div>
                     </div>

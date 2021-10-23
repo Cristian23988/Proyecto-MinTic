@@ -185,7 +185,7 @@ class UpdateVentas extends React.Component {
         return (
             <div>
                 <div>
-                    <Header />
+                    
                 </div><br/>
                 <div className="container-sm">
                     <div className="row justify-content-center">
@@ -204,40 +204,40 @@ class UpdateVentas extends React.Component {
                                 <form className="card" onSubmit={this.contactSubmit.bind(this)}>
                                     <div className="row g-2 p-2">
                                         <div className="col-sm-5 position-relative">
-                                            <label for="updVentaCliente" className="form-label">Nombre del cliente</label>
+                                            <label htmlFor="updVentaCliente" className="form-label">Nombre del cliente</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     <img src={iconCliente} className="ventas-content-form-icon" alt="icono" />
                                                 </span>
-                                                <input type="text" class="form-control" id="updVentaCliente" onChange={this.handleChange.bind(this, "updVentaCliente")} value={this.state.updVentaCliente} placeholder="Escriba el nombre del cliente" required ></input>
+                                                <input type="text" className="form-control" id="updVentaCliente" onChange={this.handleChange.bind(this, "updVentaCliente")} value={this.state.updVentaCliente} placeholder="Escriba el nombre del cliente" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["updVentaCliente"]}</span>
                                             </div>
                                         </div>
                                         <div className="col-sm-3 position-relative">
-                                            <label for="updVentaDocumento" className="form-label">Número de documento</label>
+                                            <label htmlFor="updVentaDocumento" className="form-label">Número de documento</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     #
                                                 </span>
-                                                <input type="number" class="form-control" id="updVentaDocumento" onChange={this.handleChange.bind(this, "updVentaDocumento")} value={this.state.updVentaDocumento} placeholder="Escriba el numero de documento" required ></input>
+                                                <input type="number" className="form-control" id="updVentaDocumento" onChange={this.handleChange.bind(this, "updVentaDocumento")} value={this.state.updVentaDocumento} placeholder="Escriba el numero de documento" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["updVentaDocumento"]}</span>
                                             </div>
                                         </div>
                                         <div className="col-sm-4 position-relative">
-                                            <label for="updVentaProducto" className="form-label">Producto</label>
+                                            <label htmlFor="updVentaProducto" className="form-label">Producto</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     <img src={iconProducto} className="ventas-content-form-icon" alt="icono" />
                                                 </span>
                                                 <select className="form-select" id="updVentaProducto" onChange={this.handleChange.bind(this, "updVentaProducto")} value={this.state.updVentaProducto} required >
-                                                    <option value="" selected>Seleccione un producto</option>
+                                                    <option value="" defaultValue>Seleccione un producto</option>
                                                     {this.state.products.map((prod) => {
                                                         return (
-                                                            <option value={prod._id}>{prod.nombre_producto}</option>
+                                                            <option key={prod._id} value={prod._id}>{prod.nombre_producto}</option>
                                                         )
                                                     })}
                                                 </select>
@@ -247,40 +247,40 @@ class UpdateVentas extends React.Component {
                                             </div>
                                         </div>
                                         <div className="col-sm-5 position-relative">
-                                            <label for="updVentaCantidad" className="form-label">Cantidad</label>
+                                            <label htmlFor="updVentaCantidad" className="form-label">Cantidad</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     #
                                                 </span>
-                                                <input type="number" class="form-control" id="updVentaCantidad" onChange={this.handleChange.bind(this, "updVentaCantidad")} value={this.state.updVentaCantidad} placeholder="Escriba la cantidad de productos" required ></input>
+                                                <input type="number" className="form-control" id="updVentaCantidad" onChange={this.handleChange.bind(this, "updVentaCantidad")} value={this.state.updVentaCantidad} placeholder="Escriba la cantidad de productos" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["updVentaCantidad"]}</span>
                                             </div>
                                         </div>
                                         <div className="col-sm-3 position-relative">
-                                            <label for="updVentaTotal" className="form-label">Total</label>
+                                            <label htmlFor="updVentaTotal" className="form-label">Total</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     $
                                                 </span>
-                                                <input type="number" class="form-control" id="updVentaTotal" onChange={this.handleChange.bind(this, "updVentaTotal")} value={this.state.updVentaTotal} disabled readonly></input>
+                                                <input type="number" className="form-control" id="updVentaTotal" onChange={this.handleChange.bind(this, "updVentaTotal")} value={this.state.updVentaTotal} disabled readOnly></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["updVentaTotal"]}</span>
                                             </div>
                                         </div>
                                         <div className="col-sm-4 position-relative">
-                                            <label for="updVentaVendedor" className="form-label">Vendedor</label>
+                                            <label htmlFor="updVentaVendedor" className="form-label">Vendedor</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     <img src={iconVendedor} className="ventas-content-form-icon" alt="icono" />
                                                 </span>
                                                 <select className="form-select" id="updVentaVendedor" onChange={this.handleChange.bind(this, "updVentaVendedor")} value={this.state.updVentaVendedor} required >
-                                                    <option value="" selected>Seleccione el vendedor</option>
+                                                    <option value="" defaultValue>Seleccione el vendedor</option>
                                                     {this.state.vendedores.map((vend) => {
                                                         return (
-                                                            <option value={vend._id}>{vend.nombre_usu}</option>
+                                                            <option key={vend._id} value={vend._id}>{vend.nombre_usu}</option>
                                                         )
                                                     })}
                                                 </select>

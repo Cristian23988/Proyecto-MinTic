@@ -57,7 +57,7 @@ class UpdateVend extends React.Component{
 
         //apellido
         if (typeof fields["updapellido_usu"] !== "undefined") {
-            if (!fields["updapellido_usu"] != "") {
+            if (!fields["updapellido_usu"] !=="") {
                 formIsValid = false;
                 errors["updapellido_usu"] = "Seleccione una opción";
             }
@@ -65,7 +65,7 @@ class UpdateVend extends React.Component{
 
         //tipo identificacion
         if (typeof fields["updtipodocumento_usu"] !== "undefined") {
-            if (!fields["updtipodocumento_usu"]!="") {
+            if (!fields["updtipodocumento_usu"]!=="") {
                 formIsValid = false;
                 errors["updtipodocumento_usu"] = "seleccione una opcion.";
             }
@@ -81,19 +81,19 @@ class UpdateVend extends React.Component{
 
         //Rol
         if (typeof fields["updrol_usu"] !== "undefined") {
-            if (!fields["updrol_usu"] != "") {
+            if (!fields["updrol_usu"] !== "") {
                 formIsValid = false;
                 errors["updrol_usu"] = "Seleccione una opción";
             }
         }
         if (typeof fields["updcorreo_usu"] !== "undefined") {
-            if (!fields["updcorreo_usu"] != "") {
+            if (!fields["updcorreo_usu"] !== "") {
                 formIsValid = false;
                 errors["updcorreo_usu"] = "Seleccione una opción";
             }
         }
         if (typeof fields["updestado_usu"] !== "undefined") {
-            if (!fields["updestado_usu"] != "") {
+            if (!fields["updestado_usu"] !== "") {
                 formIsValid = false;
                 errors["updestado_usu"] = "Seleccione una opción";
             }
@@ -151,7 +151,6 @@ render(){
     return (
         <div>
         <div>
-            <Header />
         </div><br />
         <div className="container-sm">
             <div className="row justify-content-center">
@@ -195,7 +194,7 @@ render(){
                                             <img src={icondocumento} className="producto-content-form-icon" alt="icono"/>
                                         </span>
                                         <select className="form-select" id="updtipodocumento_usu" onChange={this.handleChange.bind(this, "updtipodocumento_usu")} required >
-                                            <option value={this.state.updtipodocumento_usu} selected>{this.state.updtipodocumento_usu === "Cedula" ? "Cedula":" Pasaporte"}</option>
+                                            <option value={this.state.updtipodocumento_usu} defaultValue>{this.state.updtipodocumento_usu === "Cedula" ? "Cedula":" Pasaporte"}</option>
                                             <option value="Cedula">Cedula</option>
                                             <option value="Pasaporte">Pasaporte</option>
                                         </select>
@@ -217,8 +216,8 @@ render(){
                                             <img src={iconorol} className="producto-content-form-icon" alt="icono"/>
                                         </span>
                                         <select className="form-select" id="updrol_usu" onChange={this.handleChange.bind(this, "updrol_usu")} required >
-                                            <option value={this.state.updrol_usu} selected>{this.state.updrol_usu === "Vendedor" ? "Vendedor":"Administrador"}</option>
-                                            <option value="Administrador">Administrador</option>
+                                            <option value={this.state.updrol_usu} defaultValue>{this.state.updrol_usu === "Vendedor" ? "Vendedor":"Admin"}</option>
+                                            <option value="Admin">Admin</option>
                                             <option value="Vendedor">Vendedor</option>
                                         </select>
                                     </div>
@@ -241,7 +240,7 @@ render(){
                                             <img src={iconorol} className="producto-content-form-icon" alt="icono"/>
                                         </span>
                                         <select className="form-select" id="updestado_usu" onChange={this.handleChange.bind(this, "updestado_usu")} required >
-                                            <option value={this.state.updestado_usu} selected>{this.state.updestado_usu === "Activo" ? "Inactivo":"Activo"}</option>
+                                            <option value={this.state.updestado_usu} defaultValue>{this.state.updestado_usu === "Activo" ? "Inactivo":"Activo"}</option>
                                             <option value="true">Activo</option>
                                             <option value="false">Inactivo</option>
                                         </select>

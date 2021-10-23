@@ -8,7 +8,6 @@ function home() {
   return (
     <div className="container-fluid">
       <div className="row">
-          <Header />
       </div>
       <div className="row justify-content-center">
         <div className="p-3 col col-sm-7">
