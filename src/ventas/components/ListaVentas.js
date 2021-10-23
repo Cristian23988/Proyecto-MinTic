@@ -71,14 +71,14 @@ const ListaVentas = () => {
                 </thead>
                 <tbody>
                     {ventas.map((vent) => (    
-                        <tr>
-                        <th scope="row">{c++}</th>
+                        <tr key={vent._id}>
+                        <th scope="row" >{c++}</th>
                         <td>{vent.nombreCliente}</td>
                         <td>{vent.producto.nombre_producto}</td>
                         <td>{vent.cantidad}</td>        
                         <td>{vent.nombreVendedor.nombre_usu+" "+vent.nombreVendedor.apellido_usu}</td>                   
                         <td>{vent.total}</td>
-                        <td colspan="2" className="col">
+                        <td colSpan="2" className="col">
                             <Link to={"/updateVentas/"+vent._id}><button className="btn btn-warning btn-sm">Editar</button></Link> 
                             <button type="button"  className="btn btn-danger btn-sm" onClick={()=>{functionModal(true); setValue(vent._id); setAlerta("danger"); setAlertaMensaje("¿Seguro que desea eliminar la venta?");}}> Eliminar</button>
                         </td>

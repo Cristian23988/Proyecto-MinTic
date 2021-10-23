@@ -194,7 +194,7 @@ class AgregarVenta extends React.Component {
         return (
             <div>
                 <div>
-                    <Header />
+                 
                 </div>
                 <div className="container-sm">
                     <div className="row justify-content-center">
@@ -218,7 +218,7 @@ class AgregarVenta extends React.Component {
                                                 <span className="input-group-text">
                                                     <img src={iconCliente} className="ventas-content-form-icon" alt="icono" />
                                                 </span>
-                                                <input type="text" class="form-control" id="regVentaCliente" onChange={this.handleChange.bind(this, "regVentaCliente")} value={this.state.fields["regVentaCliente"]} placeholder="Escriba el nombre del cliente" required ></input>
+                                                <input type="text" className="form-control" id="regVentaCliente" onChange={this.handleChange.bind(this, "regVentaCliente")} value={this.state.fields["regVentaCliente"]} placeholder="Escriba el nombre del cliente" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["regVentaCliente"]}</span>
@@ -230,7 +230,7 @@ class AgregarVenta extends React.Component {
                                                 <span className="input-group-text">
                                                     #
                                                 </span>
-                                                <input type="number" class="form-control" id="regVentaDocumento" onChange={this.handleChange.bind(this, "regVentaDocumento")} value={this.state.fields["regVentaDocumento"]} placeholder="Escriba el numero de documento" required ></input>
+                                                <input type="number" className="form-control" id="regVentaDocumento" onChange={this.handleChange.bind(this, "regVentaDocumento")} value={this.state.fields["regVentaDocumento"]} placeholder="Escriba el numero de documento" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["regVentaDocumento"]}</span>
@@ -243,10 +243,10 @@ class AgregarVenta extends React.Component {
                                                     <img src={iconProducto} className="ventas-content-form-icon" alt="icono" />
                                                 </span>
                                                 <select className="form-select" id="regVentaProducto" onChange={this.handleChange.bind(this, "regVentaProducto")} value={this.state.fields["regVentaProducto"]} required >
-                                                    <option value="" selected>Seleccione un producto</option>
+                                                    <option value="" defaultValue>Seleccione un producto</option>
                                                     {this.state.products.map((prod) => {
                                                         return (
-                                                            <option value={prod._id}>{prod.nombre_producto}</option>
+                                                            <option key={prod._id} value={prod._id}>{prod.nombre_producto}</option>
                                                         )
                                                     })}
                                                 </select>
@@ -261,7 +261,7 @@ class AgregarVenta extends React.Component {
                                                 <span className="input-group-text">
                                                     #
                                                 </span>
-                                                <input type="number" class="form-control" id="regVentaCantidad" onChange={this.handleChange.bind(this, "regVentaCantidad")} value={this.state.fields["regVentaCantidad"]} placeholder="Escriba la cantidad de productos" required ></input>
+                                                <input type="number" className="form-control" id="regVentaCantidad" onChange={this.handleChange.bind(this, "regVentaCantidad")} value={this.state.fields["regVentaCantidad"]} placeholder="Escriba la cantidad de productos" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["regVentaCantidad"]}</span>
@@ -273,7 +273,7 @@ class AgregarVenta extends React.Component {
                                                 <span className="input-group-text">
                                                     $
                                                 </span>
-                                                <input type="number" class="form-control" id="regVentaTotal" onChange={this.handleChange.bind(this, "regVentaTotal")} value={this.state.total} disabled readonly></input>
+                                                <input type="number" className="form-control" id="regVentaTotal" onChange={this.handleChange.bind(this, "regVentaTotal")} value={this.state.total} disabled readOnly></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["regVentaTotal"]}</span>
@@ -286,10 +286,10 @@ class AgregarVenta extends React.Component {
                                                     <img src={iconVendedor} className="ventas-content-form-icon" alt="icono" />
                                                 </span>
                                                 <select className="form-select" id="regVentaVendedor" onChange={this.handleChange.bind(this, "regVentaVendedor")} value={this.state.fields["regVentaVendedor"]} required >
-                                                    <option value="" selected>Seleccione el vendedor</option>
+                                                    <option value="" defaultValue >Seleccione el vendedor</option>
                                                     {this.state.vendedores.map((vend) => {
                                                         return (
-                                                            <option value={vend._id}>{vend.nombre_usu}</option>
+                                                            <option  key={vend._id} value={vend._id}>{vend.nombre_usu}</option>
                                                         )
                                                     })}
                                                 </select>

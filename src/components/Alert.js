@@ -12,7 +12,7 @@ const Alerta=({tipo, mensaje}) =>{
                         <span>Mensaje</span>
                     </div>
                     <div className="col-sm-2 position-end">
-                        <button onClick={() => setShow(false)} className="btn btn-primary" className="btn-close"></button>
+                        <button onClick={() => setShow(false)} className="btn btn-primary" ></button>
                     </div>
                 </div>
                 <p>{mensaje}</p>

@@ -73,8 +73,8 @@ const AdminLista_Products = () => {
                 </thead>
                 <tbody>
                 {listProductos.map((prod)=>(
-                    <tr>
-                        <th scope="row">{c++}</th>
+                    <tr key={prod._id}>
+                        <th scope="row" >{c++}</th>
                         <td>{prod.nombre_producto}</td>
                         <td>{prod.categoria.nombre_categoria}</td>
                         <td>{prod.precio_unitario}</td>
