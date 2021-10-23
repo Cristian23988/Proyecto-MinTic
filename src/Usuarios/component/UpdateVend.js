@@ -195,7 +195,7 @@ render(){
                                         </span>
                                         <select className="form-select" id="updtipodocumento_usu" onChange={this.handleChange.bind(this, "updtipodocumento_usu")} required >
                                             <option value={this.state.updtipodocumento_usu} defaultValue>{this.state.updtipodocumento_usu === "Cedula" ? "Cedula":" Pasaporte"}</option>
-                                            <option value="Cedula">Cedula</option>
+                                            <option value="Cedula">Cedula</option>           
                                             <option value="Pasaporte">Pasaporte</option>
                                         </select>
                                     </div>
@@ -215,7 +215,7 @@ render(){
                                         <span className="input-group-text">
                                             <img src={iconorol} className="producto-content-form-icon" alt="icono"/>
                                         </span>
-                                        <select className="form-select" id="updrol_usu" onChange={this.handleChange.bind(this, "updrol_usu")} required >
+                                        <select className="form-select" id="updrol_usu" onChange={this.handleChange.bind(this, "updrol_usu")} required >                           
                                             <option value={this.state.updrol_usu} defaultValue>{this.state.updrol_usu === "Vendedor" ? "Vendedor":"Admin"}</option>
                                             <option value="Admin">Admin</option>
                                             <option value="Vendedor">Vendedor</option>
