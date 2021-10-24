@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React,{useState, useEffect} from "react";
 import serviceApi from "../../servicios/serviceApi";
+import Busqueda from './Busqueda';
 
 const AdminLista_Products = () => {
     const  [ modal , setModal ]  = useState ();
@@ -25,7 +26,6 @@ const AdminLista_Products = () => {
 
         fetchData();
     };
-
     const [ listProductos, setListProductos ] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -58,6 +58,7 @@ const AdminLista_Products = () => {
                 </div>
                 </div>
             </div>
+            <Busqueda productos={[...listProductos]} setProductos={setListProductos} />
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>

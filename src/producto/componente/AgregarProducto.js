@@ -6,7 +6,6 @@ import iconCategorias from '../../img/icon-categorias.png';
 import iconIng from '../../img/icon-btn-ingresar.svg';
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import Header from '../../components/Header';
 import AdminListaProducts from './AdminLista_ Products';
 import Alert from '../../components/Alert';
 import serviceApi from "../../servicios/serviceApi";
@@ -134,7 +133,6 @@ class AgregarProducto extends React.Component {
         this.setState({ errors: errors , alerta: ""});
         return formIsValid;
     }
-
     contactSubmit(e) {
         e.preventDefault();
 
@@ -312,7 +310,7 @@ class AgregarProducto extends React.Component {
                                 </div>
                             </div>
                             <div className="table-responsive">
-                                <AdminListaProducts/>
+                                <AdminListaProducts />
                             </div>
                         </div>
                     </div>
