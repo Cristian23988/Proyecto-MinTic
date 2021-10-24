@@ -175,7 +175,7 @@ class AgregarUsuario extends React.Component {
         return (
             <div>
                 <div>
-                    <Header />
+                  
                 </div>
                 <div className="container-sm">
                     <div className="row justify-content-center">
@@ -195,37 +195,37 @@ class AgregarUsuario extends React.Component {
                                 <form className="card" onSubmit={this.contactSubmit.bind(this)} action="../api/Usuarios" type="POST">
                                     <div className="row g-2 p-2">
                                         <div className="col-sm-4 position-relative">
-                                            <label for="regUsuarioNombre" className="form-label">Nombre del usuario</label>
+                                            <label htmlFor="regUsuarioNombre" className="form-label">Nombre del usuario</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     <img src={iconCliente} className="usuarios-content-form-icon" alt="icono"/>
                                                 </span>
-                                                <input type="text" class="form-control" id="regUsuarioNombre" onChange={this.handleChange.bind(this, "regUsuarioNombre")} value={this.state.fields["regUsuarioNombre"]} placeholder="Escriba el nombre" required ></input>
+                                                <input type="text" className="form-control" id="regUsuarioNombre" onChange={this.handleChange.bind(this, "regUsuarioNombre")} value={this.state.fields["regUsuarioNombre"]} placeholder="Escriba el nombre" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["regUsuarioNombre"]}</span>
                                             </div>
                                         </div>
                                         <div className="col-sm-4 position-relative">
-                                            <label for="regUsuarioApellidos" className="form-label">Apellidos del usuario</label>
+                                            <label htmlFor="regUsuarioApellidos" className="form-label">Apellidos del usuario</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     <img src={iconCliente} className="usuarios-content-form-icon" alt="icono"/>
                                                 </span>
-                                                <input type="text" class="form-control" id="regUsuarioApellidos" onChange={this.handleChange.bind(this, "regUsuarioApellidos")} value={this.state.fields["regUsuarioApellidos"]} placeholder="Escriba los apellidos" required ></input>
+                                                <input type="text" className="form-control" id="regUsuarioApellidos" onChange={this.handleChange.bind(this, "regUsuarioApellidos")} value={this.state.fields["regUsuarioApellidos"]} placeholder="Escriba los apellidos" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["regUsuarioApellidos"]}</span>
                                             </div>
                                         </div>
                                         <div className="col-sm-4 position-relative">
-                                            <label for="regUsuarioTipoId" className="form-label">Tipo de identificación</label>
+                                            <label htmlFor="regUsuarioTipoId" className="form-label">Tipo de identificación</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     <img src={icondocumento} className="usuarios-content-form-icon" alt="icono"/>
                                                 </span>
                                                 <select className="form-select" id="regUsuarioTipoId" onChange={this.handleChange.bind(this, "regUsuarioTipoId")} value={this.state.fields["regUsuarioTipoId"]} required >
-                                                    <option value="" selected>Seleccione el tipo de identificación</option>
+                                                    <option value="" defaultValue>Seleccione el tipo de identificación</option>
                                                     <option value="Cedula">Cedula</option>
                                                     <option value="Pasaporte">Pasaporte</option>
                                                 </select>
@@ -235,26 +235,26 @@ class AgregarUsuario extends React.Component {
                                             </div>
                                         </div>
                                         <div className="col-sm-4 position-relative">
-                                            <label for="regUsuarioDocumento" className="form-label">Número de documento</label>
+                                            <label htmlFor="regUsuarioDocumento" className="form-label">Número de documento</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     #
                                                 </span>
-                                                <input type="number" class="form-control" id="regUsuarioDocumento" onChange={this.handleChange.bind(this, "regUsuarioDocumento")} value={this.state.fields["regUsuarioDocumento"]} placeholder="Escriba el numero de documento" required ></input>
+                                                <input type="number" className="form-control" id="regUsuarioDocumento" onChange={this.handleChange.bind(this, "regUsuarioDocumento")} value={this.state.fields["regUsuarioDocumento"]} placeholder="Escriba el numero de documento" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["regUsuarioDocumento"]}</span>
                                             </div>
                                         </div>
                                         <div className="col-sm-4 position-relative">
-                                            <label for="regUsuarioRol" className="form-label">Rol de usuario</label>
+                                            <label htmlFor="regUsuarioRol" className="form-label">Rol de usuario</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     <img src={iconProducto} className="usuarios-content-form-icon" alt="icono"/>
                                                 </span>
                                                 <select className="form-select" id="regUsuarioRol" onChange={this.handleChange.bind(this, "regUsuarioRol")} value={this.state.fields["regUsuarioRol"]} required >
-                                                    <option value="" selected>Seleccione el rol de usuario</option>
-                                                    <option value="Administrador" >Administrador</option>
+                                                    <option value="" defaultValue>Seleccione el rol de usuario</option>
+                                                    <option value="Administrador" >Admin</option>
                                                     <option value="Vendedor" >Vendedor</option>
                                                 </select>
                                             </div>
@@ -264,27 +264,27 @@ class AgregarUsuario extends React.Component {
                                         </div>
 
                                         <div className="col-sm-4 position-relative">
-                                            <label for="regUsuariocorreo" className="form-label">Correo</label>
+                                            <label htmlFor="regUsuariocorreo" className="form-label">Correo</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                 <img src={correo} className="usuarios-content-form-icon" alt="icono"/>
                                               
                                                 </span>
-                                                <input type="text" class="form-control" id="regUsuariocorreo" onChange={this.handleChange.bind(this, "regUsuariocorreo")} value={this.state.fields["regUsuariocorreo"]} placeholder="Escriba el numero de documento" required ></input>
+                                                <input type="text" className="form-control" id="regUsuariocorreo" onChange={this.handleChange.bind(this, "regUsuariocorreo")} value={this.state.fields["regUsuariocorreo"]} placeholder="Escriba el numero de documento" required ></input>
                                             </div>
                                             <div>
                                                 <span style={{ color: "red" }}>{this.state.errors["regUsuariocorreo"]}</span>
                                             </div>
                                         </div>
                                         <div className="col-sm-5 position-relative">
-                                            <label for="regUsuarioestado" className="form-label">Estado</label>
+                                            <label htmlFor="regUsuarioestado" className="form-label">Estado</label>
                                             <div className="input-group justify-content-center">
                                                 <span className="input-group-text">
                                                     <img src={iconorol} className="usuarios-content-form-icon" alt="icono"/>
                                                 </span>
                                                 <select className="form-select" id="regUsuarioestado" name="regUsuarioestado" onChange={this.handleChange.bind(this, "regUsuarioestado")} value={this.state.fields["regUsuarioestado"]} required >
-                                                    <option value="" selected>Seleccione el estado del usuario</option>
-                                                    <option value="true" >activo</option>
+                                                    <option value="" defaultValue>Seleccione el estado del usuario</option>
+                                                    <option value="true" >Activo</option>
                                                     <option value="false" >Inactivo</option>
                                                 </select>
                                             </div>

@@ -35,7 +35,7 @@ const api = {
       return callApi("/products/"+value, {
         method: "DELETE",
       });
-    }
+    },
   },
   categorias: {
     list() {
@@ -95,9 +95,10 @@ const api = {
       return callApi("/Usuarios/"+value, {
         method: "DELETE",
       });
-    }
-
-  
+    },
+    validarAdmin() {
+      return callApi("/Usuarios/validarAdmin");
+    },
   },
 };
   

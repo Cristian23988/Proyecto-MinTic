@@ -1,30 +1,31 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
-import iconUser from '../img/icon-user.svg';
-import AlertInactivo from './AlertInactivo';
+import { useHistory } from "react-router-dom";
 import GoogleLogin from 'react-google-login';
 import iconCarrito from '../img/icon-carrito.svg';
 import api from "../servicios/serviceApi";
-const HeaderLogin=({carrito}) =>{
+const HeaderLogin=({carrito, isLoggedIn, setLogin, setIsAdmin}) =>{
+    const history = useHistory();
     carrito = 3;
-    const [loggIn, setLoggIn] = useState(false);
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token === null) {
-           setLoggIn(false);
-        } else {      
-           api.Usuarios.getUser().then((res)=>{
-            if(res === "Activo"){ 
-                setLoggIn(true);
-            }else if(res ==="Inactivo"){
-                setLoggIn(false);
+    const login=(res)=>{
+        localStorage.setItem("token", res.tokenId);
+        //setTimeout(window.location.reload(), 1000);
+        api.Usuarios.getUser().then((res) => {
+            setLogin(res.estado_activo);
+            if (res.estado_activo) {
+                setIsAdmin(res.rol_usu === "Admin");
+            } else {
                 localStorage.removeItem("token");
-                <AlertInactivo/>
             }
-        });           
-        }      
-    }, []);
-    if(loggIn === true){
+        });          
+    }
+    const logout=()=>{
+        setLogin(false); 
+        localStorage.removeItem('token');  
+        history.push("/");
+    }
+    if(isLoggedIn){
         return(
             <React.Fragment>
                 
@@ -40,9 +41,6 @@ const HeaderLogin=({carrito}) =>{
                 <li className="nav-item">
                     <Link to="/Productos" className="nav-link">Gestion de productos</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/login" className="nav-link">Form Login</Link>
-                </li>
                 <li className="nav-item" style={{marginLeft:'20px'}}>
                     <Link to="/carrito" className="position-relative">
                         <img src={iconCarrito} alt="..." className="header-icon"></img>
@@ -52,26 +50,17 @@ const HeaderLogin=({carrito}) =>{
                     </Link>
                 </li>             
                 <li className="nav-item" style={{marginLeft:'50px'}}>
-                    <button className="btn btn-outline-danger btn-sm" onClick={() => {localStorage.removeItem('token'); setTimeout(window.location.reload(), 1000);}}>Salir</button>
+                    <button className="btn btn-outline-danger btn-sm" onClick={ logout }>Salir</button>
                 </li>                           
             </React.Fragment>
         );
     }else{
         return(
             <div>            
-                {/* <button className="btn btn-outline-success btn-sm" onClick={() => {localStorage.setItem("isLogged", true); setTimeout(window.location.reload(), 1000);}}>
-                    Iniciar Sesion
-                </button> */}
                 <GoogleLogin
                     clientId="882471923244-2s7j8hlt0kftg4qlv00mm5rldl1camul.apps.googleusercontent.com"
                     buttonText="Iniciar sesion"
-                    onSuccess={(res) => 
-                        {    
-                            setTimeout(window.location.reload(), 1000);
-                            localStorage.setItem("token", res.tokenId);                     
-                                            
-                        }
-                    }
+                    onSuccess={login}
                     onFailure={(err)=>{console.log(err)}}
                     cookiePolicy={'single_host_origin'}
                 />

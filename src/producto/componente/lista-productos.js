@@ -15,8 +15,14 @@ function Lista_Productos(){
     }, []);
 
     return(
-        <div className="row">
-            { productos.map((producto)=>(<Producto productos={productos} producto={producto}/>))}
+        <div className="row">     
+            {               
+                productos.map((producto)=>(
+                    <div className="col" key={producto._id}> 
+                        <Producto productos={productos} producto={producto}/>
+                    </div>
+                ))            
+            }
         </div>         
     );
 }

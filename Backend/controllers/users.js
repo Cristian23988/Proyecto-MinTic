@@ -9,22 +9,36 @@ exports.getUser = (req, res) => {
   Usuario.findOne({email_usu:email}).then((user) => {
     if(user){
       if(user.estado_activo){
-        res.status(200).json("Activo")
+        res.status(200).json(user)
       }else{
-        res.status(500).json("Inactivo")
+        res.status(500).json(user)
       }      
     }else{
       const newUser=new Usuario({
         nombre_usu:req.userData.name,
+        apellido_usu:"Apellido",
+        tipo_documento_usu:"Cedula",
+        identificacion_usu:111111,
         email_usu:req.userData.email,
+        rol_usu:"Vendedor",
         estado_activo:false,
       });
       newUser.save().then((user)=>{
-        res.status(200).json("Inactivo");
+        res.status(200).json(user);
       })
     }
     //res.status(200).json(user)
   })
+};
+exports.ValidarAdmin = (req, res) => {
+  const email = req.userData.email;
+  Usuario.findOne({ email_usu: email }).then((user) => {
+    if (user.rol_usu === "Admin") {
+      res.status(200).json(true);
+    } else {
+      res.status(401).json(false);
+    }
+  });
 };
 exports.addUser=(req,res)=>{
     const userAdd = new Usuario({
