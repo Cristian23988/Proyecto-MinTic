@@ -7,6 +7,7 @@ const callApi = async (url, options = {}) => {
   };
   const response = await fetch("https://improtic-backend.herokuapp.com/api" + url, options);
   const data = await response.json();
+  const a=1;
   return data;
     
 };
