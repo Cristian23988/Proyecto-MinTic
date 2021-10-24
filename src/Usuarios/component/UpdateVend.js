@@ -1,9 +1,7 @@
-import React, { useState,useEffect } from "react";
-import Header from "../../components/Header";
+import React from "react";
 import serviceApi from "../../servicios/serviceApi";
 import Alert from '../../components/Alert';
 import iconCliente from '../../img/icon-cliente.png';
-import iconProducto from '../../img/icon-producto.png';
 import icondocumento from '../../img/icono-documento.png';
 import iconIng from '../../img/icon-btn-ingresar.svg';
 import correo from '../../img/correo-electronico.png';
@@ -144,7 +142,6 @@ class UpdateVend extends React.Component{
         let f = this.state.fields;
         f[field] = e.target.value;
         this.state[field] = e.target.value;
-        console.log(e.target.value);
         this.setState({ f, alerta: ""});
     }
 

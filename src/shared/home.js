@@ -1,7 +1,6 @@
 import './home.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import React from "react";
-import Header from '../components/Header';
 import Lista_Productos from "../producto/componente/lista-productos";
 function home() {
   

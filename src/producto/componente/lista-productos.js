@@ -15,7 +15,7 @@ function Lista_Productos(){
     }, []);
 
     return(
-        <div className="row">      
+        <div className="row">     
             {               
                 productos.map((producto)=>(
                     <div className="col" key={producto._id}> 

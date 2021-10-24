@@ -39,7 +39,7 @@ function App(){
         <Route exact path="/" component={home} />
         <Route path="/listaProducts" component={Lista_Productos} />
         <PrivateRouteAdmin   path="/Productos" isAdmin={isAdmin} exact >
-            <AgregarProduct />
+            <AgregarProduct/>
         </PrivateRouteAdmin>
         <PrivateRouteAdmin  path="/Usuarios" isAdmin={isAdmin} exact>
             <AgregarUsuario/>

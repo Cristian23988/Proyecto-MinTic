@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from "react";
 import serviceApi from "../../servicios/serviceApi";
+import Busqueda from './Busqueda';
 import { Link } from "react-router-dom";
 
 const ListaUsuarios = () => {
@@ -59,6 +60,7 @@ const ListaUsuarios = () => {
                 </div>
                 </div>
             </div>
+            <Busqueda usuarios={[...usuario]} setUsuarios={setListVentas} />
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>

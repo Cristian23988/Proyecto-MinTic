@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from "react";
 import serviceApi from "../../servicios/serviceApi";
 import { Link } from "react-router-dom";
+import Busqueda from './Busqueda';
 
 const ListaVentas = () => {
     const [ ventas, setListVentas ] = useState([]);
@@ -57,6 +58,7 @@ const ListaVentas = () => {
                 </div>
                 </div>
             </div>
+            <Busqueda ventas={[...ventas]} setListVentas={setListVentas} /> 
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>
