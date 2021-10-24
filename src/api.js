@@ -1,5 +1,5 @@
 const CallApi = async () => {
-    const response = await fetch("http://localhost:3001/api/products");
+    const response = await fetch("https://improtic-backend.herokuapp.com/api/products");
     const data = await response.json();
     return data;
   };
